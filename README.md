@@ -24,7 +24,7 @@ We need topics id to send messages right topics. In our example I have created s
 
 **to get topic and Group IDs we need to open  and login to  Web Telegram** ---> (https://web.telegram.org/)
 
-Openyour super group and you will see chat id (Usually  like that :  #-xxxxxxxxxxxx)  
+Openyour super group and you will see chat id (Usually  like that :  -xxxxxxxxxxxx)  
 <img width="1070" height="685" alt="Image" src="https://github.com/user-attachments/assets/a5a192f5-79bc-4071-9203-423c43d70134" />  
 
   
