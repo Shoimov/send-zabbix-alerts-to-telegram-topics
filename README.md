@@ -60,4 +60,176 @@ This step is not hard. Just search botfather in telegram and create new bot. Aft
 
 
 
+   **Also Add Following Code to the Script:**
+
+```
+var Telegram = {
+    token: null,
+    to: null,
+    message: null,
+    proxy: null,
+    parse_mode: 'html',
+
+    topics: {
+        "Minor Problems": 19,
+        "Disk IO": 20 ,
+        "Critical": 21,
+        "Cpu or Ram": 22,
+        "Disk Full": 23,
+        "Disk IO":24
+    },
+
+    escapeHTML: function (str) {
+        if (!str) return "";
+        return str
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+    },
+
+    chooseTopic: function (text) {
+        text = text.toLowerCase();
+        if (text.includes("disk space is low") || text.includes("disk space is critically low")) return Telegram.topics["Disk Full"];
+        if (text.includes("responses are too high")) return Telegram.topics["Disk IO"];
+        if (text.includes("high memory utilization") || text.includes("load average is too high")) return Telegram.topics["Cpu or Ram"];
+        if (text.includes("main humo channel") || text.includes("gci_ipsec") || text.includes("hypervisor is down") || text.includes("link down") || text.includes("unavailable by icmp ping"))
+            return Telegram.topics["Critical"];
+        return Telegram.topics["Minor Problems"];
+    },
+
+    sendMessage: function () {
+        var topic_id = Telegram.chooseTopic(Telegram.message);
+        var params = {
+            chat_id: Telegram.to,
+            text: Telegram.message,
+            message_thread_id: topic_id,
+            disable_web_page_preview: true,
+            disable_notification: false,
+            parse_mode: Telegram.parse_mode
+        };
+
+        var request = new HttpRequest();
+        if (Telegram.proxy) request.setProxy(Telegram.proxy);
+        request.addHeader('Content-Type: application/json');
+
+        var url = 'https://api.telegram.org/bot' + Telegram.token + '/sendMessage';
+        var data = JSON.stringify(params);
+
+        Zabbix.log(4, '[Telegram Forward] URL: ' + url.replace(Telegram.token, '<TOKEN>'));
+        Zabbix.log(4, '[Telegram Forward] params: ' + data);
+
+        var response = request.post(url, data);
+        Zabbix.log(4, '[Telegram Forward] HTTP code: ' + request.getStatus());
+
+        try { response = JSON.parse(response); } catch (error) { response = null; }
+
+        if (request.getStatus() !== 200 || !response || response.ok !== true) {
+            var err = (response && response.description) ? response.description : 'Unknown error';
+            throw 'Telegram send failed: ' + err;
+        }
+    }
+};
+
+try {
+    var params = JSON.parse(value);
+
+    if (!params.Token) throw 'Missing "Token" parameter';
+    if (!params.To) throw 'Missing "To" parameter';
+
+    Telegram.token = params.Token;
+    Telegram.to = params.To;
+
+    // --- Extract fields ---
+    var msg = params.Message;
+    var host = (msg.match(/Host:\s*(.*)/) || [])[1] || "Unknown host";
+    var ip = (msg.match(/IP:\s*(.*)/) || [])[1] || ""; // <--- Extract IP if available
+    var problem = (msg.match(/Problem name:\s*(.*)/) || [])[1] ||
+                  (msg.match(/Problem:\s*(.*)/) || [])[1] ||
+                  "Unknown problem";
+    var data = (msg.match(/Operational data:\s*(.*)/) || [])[1] || "";
+    var id = (msg.match(/Original problem ID:\s*(.*)/) || [])[1] || "";
+ 
+    var subj = params.Subject.toLowerCase();
+    var emoji = "⚪️";
+    var titlePrefix = "";
+
+    if (subj.includes("resolved") || subj.includes("recovery")) {
+        emoji = "✅";
+        titlePrefix = "Recovery: ";
+    } else if (problem.toLowerCase().includes("disk")) {
+        emoji = "💾";
+    } else if (problem.toLowerCase().includes("cpu") || problem.toLowerCase().includes("memory")) {
+        emoji = "🧠";
+    } else if (problem.toLowerCase().includes("down") || problem.toLowerCase().includes("unavailable")) {
+        emoji = "🚨";
+    } else if (problem.toLowerCase().includes("warning")) {
+        emoji = "🟡";
+    } else if (problem.toLowerCase().includes("average")) {
+        emoji = "🟠";
+    } else if (problem.toLowerCase().includes("disaster")) {
+        emoji = "🔥";
+    }
+
+    // --- Escape HTML safely ---
+    host = Telegram.escapeHTML(host);
+    ip = Telegram.escapeHTML(ip);
+    problem = Telegram.escapeHTML(problem);
+    data = Telegram.escapeHTML(data);
+    id = Telegram.escapeHTML(id);
+
+    // --- Combine host and IP ---
+    var hostLine = ip ? host + " (" + ip + ")" : host;
+
+    // --- Build message ---
+    Telegram.message =
+        '<b>' + emoji + ' ' + titlePrefix + problem + '</b>\n\n' +
+        '🏷️ <b>Host:</b> ' + hostLine + '\n' +
+        (data ? '💾 <b>Details:</b> ' + data + '\n' : '');
+
+    Telegram.sendMessage();
+    return 'OK';
+
+} catch (error) {
+    Zabbix.log(4, '[Telegram Forward] failed: ' + error);
+    throw 'Sending failed: ' + error + '.';
+}
+```
+You only need to change this part with your actual group ID and group Names:  
+
+
+```
+ topics: {
+        "Minor Problems": 19,
+        "Disk IO": 20 ,
+        "Critical": 21,
+        "Cpu or Ram": 22,
+        "Disk Full": 23,
+        "Disk IO":24
+    },
+
+    escapeHTML: function (str) {
+        if (!str) return "";
+        return str
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+    },
+```
+ALso change group names here:
+```
+    chooseTopic: function (text) {
+        text = text.toLowerCase();
+        if (text.includes("disk space is low") || text.includes("disk space is critically low")) return Telegram.topics["Disk Full"];
+        if (text.includes("responses are too high")) return Telegram.topics["Disk IO"];
+        if (text.includes("high memory utilization") || text.includes("load average is too high")) return Telegram.topics["Cpu or Ram"];
+        if (text.includes("main humo channel") || text.includes("gci_ipsec") || text.includes("hypervisor is down") || text.includes("link down") || text.includes("unavailable by icmp ping"))
+            return Telegram.topics["Critical"];
+        return Telegram.topics["Minor Problems"];
+    },
+```
+
+
+
+
+
 
