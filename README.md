@@ -40,5 +40,8 @@ https://t.me/c/3842340208/5/423
  
 **Write down all topics and chat id to one file and save it. We will need it later**
 
- 
+### 2.Create new bot with Botfather
+This step is not hard. Just search botfather in telegram and create new bot. After that you should get bot token from botfather, save it.   Also add this bot to telegram group   
+
+### 3. Configure Zabbix Media Types 
 
