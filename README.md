@@ -45,3 +45,19 @@ This step is not hard. Just search botfather in telegram and create new bot. Aft
 
 ### 3. Configure Zabbix Media Types 
 
+**Go to Alerts --> Media Types**
+<img width="597" height="968" alt="image" src="https://github.com/user-attachments/assets/f6a14c95-d788-4c5d-8ee6-b4dbb20da822" />  
+
+ **Create media type**  
+ 
+ <img width="2560" height="1126" alt="image" src="https://github.com/user-attachments/assets/af3050db-1cf5-42f1-be54-6e14a3930e82" />  
+
+   Add Parameters like in the picture.  
+   TO  is your group ID (-326723676237236)  
+   Token is your bot token  
+   Also dont forget to enable this media  
+   <img width="1864" height="981" alt="image" src="https://github.com/user-attachments/assets/0b0f03c4-a8b5-4295-82d8-8eb4d7b7d3b4" />
+
+
+
+
