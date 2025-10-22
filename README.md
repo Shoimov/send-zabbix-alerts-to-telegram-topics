@@ -1,66 +1,74 @@
-# send-zabbix-alerts-to-telegram-topics
-Send your Zabbix alerts to Telegram Supergroup Topics
+# Zabbix bildirishnomalarini Telegramdagi Topiclarga Yuborish bo`yicha qo`llanma  
+
+**Please Select English Branch if you want to read in English**
 
 
-### **This Project Includes Several Steps to Complete.**
-
-### **Steps to do**
-1.Create SuperGroup with Topics  
-2.Create new bot with Botfather  
-3. Configure Zabbix Media Types  
-4. Change Zabbix User settings to use Media Type 
+Zabbix bildirishnomalarini Telegram Supergroup Topics orqali yuborish
 
 
-### **1.Create SuperGroup with Topics**
 
- Just Create simple group on Telegram and change its settings to add Topics. 
 
-We need topics id to send messages right topics. In our example I have created several topics according to problem type:
+### **Ushbu loyiha bir nechta bosqichlardan iborat**
+
+### **Bajarish bosqichlari**
+1. Telegramda  SuperGroup  va Topiclar yaratish 
+2. Botfather yordamida yangi bot yaratish 
+3. Zabbix Media Type sozlamalarini o‘rnatish  
+4. Zabbixdagi foydalanuvchiga Media Type biriktirish
+
+### **1.Telegramda  SuperGroup  va Topiclar yaratish**
+
+Telegramda oddiy guruh yarating va uning sozlamalaridan Topics  funksiyasini yoqing.
+
+Bizga xabarlarni to‘g‘ri mavzuga yuborish uchun topic ID kerak bo‘ladi.
+Quyidagi misolda muammo turlariga qarab bir nechta topic yaratdim:
 
 <img width="2284" height="814" alt="Image" src="https://github.com/user-attachments/assets/5114a763-216e-4194-8923-c1afbfdfd3a1" />  
 
 
     
 
-**to get topic and Group IDs we need to open  and login to  Web Telegram** ---> (https://web.telegram.org/)
+**Topic ID va Group ID ni olish uchun quyidagi amallarni bajaring:** Web Telegram
+ sahifasini oching va tizimga kiring. ---> (https://web.telegram.org/)
 
-Openyour super group and you will see chat id (Usually  like that :  -xxxxxxxxxxxx)  
+ Guruhingizni oching. Browserda Chat ID ko`rinadi (odatda quyidagicha ko‘rinishda bo‘ladi: -xxxxxxxxxxxx). 
 <img width="1070" height="685" alt="Image" src="https://github.com/user-attachments/assets/a5a192f5-79bc-4071-9203-423c43d70134" />  
 
   
-**to get topics Id open that topic and send some message. Copy that message link**
+**Topic ID ni olish uchun, o‘sha topicni oching va unga biror xabar yuboring. So‘ngra o‘sha xabar havolasini (linkini) nusxalang.**
 <img width="1774" height="694" alt="image" src="https://github.com/user-attachments/assets/ffbafa0f-f6f2-4cb3-8909-ec8bc0a2dd7e" />  
 
   
-**it gives link like that**
+**Bu sizga quyidagi kabi havola beradi:**
 
 https://t.me/c/3842340208/5/423  
 
- in that link  "5"  is your topic id. Get all topics IDs also likle that.  
+Ushbu havoladagi “5” sizning topic ID’ingiz hisoblanadi. Shu usul bilan barcha topic ID’larini oling..  
  
-**Write down all topics and chat id to one file and save it. We will need it later**
+**Barcha topic ID va chat ID’larni bitta faylga yozib oling va saqlang. Keyingi bosqichlarda bu ma’lumotlar bizga  kerak bo‘ladi.**
 
-### 2.Create new bot with Botfather
-This step is not hard. Just search botfather in telegram and create new bot. After that you should get bot token from botfather, save it.   Also add this bot to telegram group   
+### 2.Botfather orqali yangi bot yaratish
+Bu bosqich juda oddiy. Telegramda BotFatherni topib , yangi bot yaratiladi. Shundan so‘ng, BotFather sizga bot token beradi — uni saqlab qo‘ying.
+Shuningdek, ushbu botni yuqoridagi Telegram guruhga qo‘shishni  ham unutmang.
 
-### 3. Configure Zabbix Media Types 
+### 3. Zabbix Media Typeni sozlash
 
-**Go to Alerts --> Media Types**
+**Zabbix’da Alerts --> Media types bo‘limiga o‘ting.**
 <img width="597" height="968" alt="image" src="https://github.com/user-attachments/assets/f6a14c95-d788-4c5d-8ee6-b4dbb20da822" />  
 
- **Create media type**  
+ **Yangi Media Type yarating.**  
  
  <img width="2560" height="1126" alt="image" src="https://github.com/user-attachments/assets/af3050db-1cf5-42f1-be54-6e14a3930e82" />  
 
-   Add Parameters like in the picture.  
-   TO  is your group ID (-326723676237236)  
-   Token is your bot token  
-   Also dont forget to enable this media  
+   Rasmda ko‘rsatilganidek parametrlarni qo‘shing.
+   TO — bu sizning group ID’ingiz (masalan, -326723676237236) 
+   Token — bu sizning bot tokeningiz 
+   Media Type’ni yoqishni(enable) unutmang.
    <img width="1864" height="981" alt="image" src="https://github.com/user-attachments/assets/0b0f03c4-a8b5-4295-82d8-8eb4d7b7d3b4" />
 
 
 
-   **Also Add Following Code to the Script:**
+   **Shuningdek, quyidagi kodni 'SCRIPT'ga qo‘shing:**
 
 ```
 var Telegram = {
@@ -194,7 +202,7 @@ try {
     throw 'Sending failed: ' + error + '.';
 }
 ```
-You only need to change this part with your actual Topic ID and Topic Names:  
+Siz faqat quyidagi qismni o‘zgartirishingiz kerak — bu yerga o‘zingizning haqiqiy Topic ID va Topic nomlaringizni kiriting:
 
 
 ```
@@ -206,16 +214,8 @@ You only need to change this part with your actual Topic ID and Topic Names:
         "Disk Full": 23,
         "Disk IO":24
     },
-
-    escapeHTML: function (str) {
-        if (!str) return "";
-        return str
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;");
-    },
 ```
-ALso change Topic names here:
+Shuningdek, quyidagi kodda ham return qismida  Topic nomlarini mos holda o‘zgartiring:
 ```
     chooseTopic: function (text) {
         text = text.toLowerCase();
