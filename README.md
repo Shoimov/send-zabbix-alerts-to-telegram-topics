@@ -1,5 +1,5 @@
 # send-zabbix-alerts-to-telegram-topics
-# Agar o`zbek tilida o`qimoqchi bo`lsangiz, iltimos  Uzbek nomli branchga o`ting
+# Agar o\`zbek tilida o\`qimoqchi bo\`lsangiz, iltimos  Uzbek nomli branchga o\`ting
 Send your Zabbix alerts to Telegram Supergroup Topics
 
 
