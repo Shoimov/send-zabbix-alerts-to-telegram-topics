@@ -231,7 +231,7 @@ ALso change Topic names here:
 **Configuring Message Templates**  
 
   Open Message Templates tab and add following Templates:  
-
+**1.**
     <img width="1464" height="439" alt="image" src="https://github.com/user-attachments/assets/ac87e994-fc71-47b2-b930-0daa19601b8c" />  
 
 
@@ -244,6 +244,8 @@ Operational data: {EVENT.OPDATA}
 Original problem ID: {EVENT.ID}
 {TRIGGER.URL}
 ```
+**2**  
+
 <img width="736" height="369" alt="image" src="https://github.com/user-attachments/assets/b28d7b0e-d90e-40db-b058-ffbbe8742ff5" />  
 
 ```
@@ -254,6 +256,8 @@ Severity: {EVENT.SEVERITY}
 Original problem ID: {EVENT.ID}
 {TRIGGER.URL}  
 ```
+**3**  
+
 <img width="736" height="369" alt="image" src="https://github.com/user-attachments/assets/c873ccd1-1dcf-4e63-b838-e03c4aa1425c" />  
 
 ```
