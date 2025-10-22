@@ -194,7 +194,7 @@ try {
     throw 'Sending failed: ' + error + '.';
 }
 ```
-You only need to change this part with your actual group ID and group Names:  
+You only need to change this part with your actual Topic ID and Topic Names:  
 
 
 ```
@@ -215,7 +215,7 @@ You only need to change this part with your actual group ID and group Names:
             .replace(/>/g, "&gt;");
     },
 ```
-ALso change group names here:
+ALso change Topic names here:
 ```
     chooseTopic: function (text) {
         text = text.toLowerCase();
@@ -227,6 +227,47 @@ ALso change group names here:
         return Telegram.topics["Minor Problems"];
     },
 ```
+
+**Configuring Message Templates**  
+
+  Open Message Templates tab and add following Templates:  
+
+    <img width="1464" height="439" alt="image" src="https://github.com/user-attachments/assets/ac87e994-fc71-47b2-b930-0daa19601b8c" />  
+
+
+```
+Problem started at {EVENT.TIME} on {EVENT.DATE}
+Problem name: {EVENT.NAME}
+Host: {HOSTNAME} ({HOST.IP})
+Severity: {EVENT.SEVERITY}
+Operational data: {EVENT.OPDATA}
+Original problem ID: {EVENT.ID}
+{TRIGGER.URL}
+```
+<img width="736" height="369" alt="image" src="https://github.com/user-attachments/assets/b28d7b0e-d90e-40db-b058-ffbbe8742ff5" />  
+
+```
+Problem has been resolved in {EVENT.DURATION} at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+Problem name: {EVENT.NAME}
+Host: {HOSTNAME} ({HOST.IP})
+Severity: {EVENT.SEVERITY}
+Original problem ID: {EVENT.ID}
+{TRIGGER.URL}  
+```
+<img width="736" height="369" alt="image" src="https://github.com/user-attachments/assets/c873ccd1-1dcf-4e63-b838-e03c4aa1425c" />  
+
+```
+{USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+{EVENT.UPDATE.MESSAGE}
+
+Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
+```
+
+
+
+
+
+
 
 
 
