@@ -280,11 +280,21 @@ Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
    Next Step is Go to Users --> Users and Select Admin  
    <img width="2554" height="525" alt="image" src="https://github.com/user-attachments/assets/6db6af3a-6af1-43d4-bb3b-11ec1eeb84f4" />  
    Select Media Tab and Add New Media as Telegram  
-   <img width="2145" height="277" alt="image" src="https://github.com/user-attachments/assets/603b6a47-d836-4544-9f65-da068cc1eaef" />  
+   <img width="2328" height="385" alt="image" src="https://github.com/user-attachments/assets/5d5f61e4-6578-4b7e-890d-b1bb0e8c5f6d" />
+
 
 
    _Send To_ should be same with your actual Telegram Group name  
    <img width="737" height="500" alt="image" src="https://github.com/user-attachments/assets/0a0f4dcd-0414-46e3-8ecf-4784be084830" />
+
+
+  ### ** Troubleshooting**
+
+  You have Just Configured  Sending Zabbix Alerts  to Telegram. For troubleshooting Go to Dashboard --> Current Problems and open Actions. It will tell you if there is problem with sending alerts  
+  <img width="2555" height="770" alt="image" src="https://github.com/user-attachments/assets/bbb8ec47-face-4cfe-896c-f42e789eb049" />  
+
+  Problem or success messages should be written here:  
+  <img width="2247" height="693" alt="image" src="https://github.com/user-attachments/assets/bdd2b03a-df39-4ee5-b6ef-bb933213d617" />
 
 
 
