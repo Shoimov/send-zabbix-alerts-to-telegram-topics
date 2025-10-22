@@ -1,4 +1,4 @@
-# Zabbix bildirishnomalarini Telegramdagi Topiclarga Yuborish bo``yicha qo`llanma  
+# Zabbix bildirishnomalarini Telegramdagi Topiclarga Yuborish bo`yicha qo`llanma  
 
 **Please Select English Branch if you want to read in English**
 
