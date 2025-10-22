@@ -279,21 +279,25 @@ Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
 
    Keyingi qadam – Users → Users bo‘limiga o‘ting va Admin foydalanuvchini tanlang.
    <img width="2554" height="525" alt="image" src="https://github.com/user-attachments/assets/6db6af3a-6af1-43d4-bb3b-11ec1eeb84f4" />  
-   Select Media Tab and Add New Media as Telegram  
+   Media tabiga o‘ting va yangi Media sifatida Telegramni qo‘shing.
    <img width="2328" height="385" alt="image" src="https://github.com/user-attachments/assets/5d5f61e4-6578-4b7e-890d-b1bb0e8c5f6d" />
 
 
 
-   _Send To_ should be same with your actual Telegram Group name  
+   _Send To_ ga  haqiqiy Telegram guruh nomini yozilishi kerak.
    <img width="737" height="500" alt="image" src="https://github.com/user-attachments/assets/0a0f4dcd-0414-46e3-8ecf-4784be084830" />
 
 
   ### ** Troubleshooting**
 
-  You have Just Configured  Sending Zabbix Alerts  to Telegram. For troubleshooting Go to Dashboard --> Current Problems and open Actions. It will tell you if there is problem with sending alerts  
+Siz hozirgina Zabbix Alertlarini Telegram’ga yuborishni sozladingiz.
+Agar biror muammo bo‘lsa, quyidagi yo‘l bilan tekshiring:  
+Dashboard → Current Problems → Actions bo‘limiga o‘ting.
+U yerda ogohlantirishlarni yuborishda muammo bor-yo‘qligini ko‘rishingiz mumkin.  
+
   <img width="2555" height="770" alt="image" src="https://github.com/user-attachments/assets/bbb8ec47-face-4cfe-896c-f42e789eb049" />  
 
-  Problem or success messages should be written here:  
+ Muammo yoki muvaffaqiyat haqidagi xabarlar esa shu yerda yozilgan bo`ladi:
   <img width="2247" height="693" alt="image" src="https://github.com/user-attachments/assets/bdd2b03a-df39-4ee5-b6ef-bb933213d617" />
 
 
