@@ -267,6 +267,32 @@ Original problem ID: {EVENT.ID}
 Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
 ```
 
+ ### 4. Change Zabbix User settings to use Media Type  
+ Go to Alerts --> Actions ---> Trigger Actions
+ <img width="532" height="247" alt="image" src="https://github.com/user-attachments/assets/bf8b9c44-baad-4da2-b68f-b04c75c470b8" />  
+ Create New Action  
+ <img width="2323" height="421" alt="image" src="https://github.com/user-attachments/assets/43116bd1-7916-4f72-a507-1c5efefd19df" />  
+
+   Go to Operations Tab and Add Following Configure to Operations, Recovery Operations and Update Operations Sections  
+   <img width="1370" height="1004" alt="image" src="https://github.com/user-attachments/assets/a3c1259c-992d-41b9-a06c-ffd21f946852" />  
+   <img width="772" height="601" alt="image" src="https://github.com/user-attachments/assets/76224bc2-d600-4594-8a5b-a0dc4a43e23f" />  
+
+   Next Step is Go to Users --> Users and Select Admin  
+   <img width="2554" height="525" alt="image" src="https://github.com/user-attachments/assets/6db6af3a-6af1-43d4-bb3b-11ec1eeb84f4" />  
+   Select Media Tab and Add New Media as Telegram  
+   <img width="2145" height="277" alt="image" src="https://github.com/user-attachments/assets/603b6a47-d836-4544-9f65-da068cc1eaef" />  
+
+
+   _Send To_ should be same with your actual Telegram Group name  
+   <img width="737" height="500" alt="image" src="https://github.com/user-attachments/assets/0a0f4dcd-0414-46e3-8ecf-4784be084830" />
+
+
+
+
+
+
+
+
 
 
 
