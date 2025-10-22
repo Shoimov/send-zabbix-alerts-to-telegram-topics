@@ -228,9 +228,9 @@ Shuningdek, quyidagi kodda ham return qismida  Topic nomlarini mos holda o‘zga
     },
 ```
 
-**Configuring Message Templates**  
+**Message Templates ni sozlash**  
 
-  Open Message Templates tab and add following Templates:  
+  Message Templates bo‘limini oching va quyidagi shablonlarni qo‘shing: 
 **1.**
     <img width="1464" height="439" alt="image" src="https://github.com/user-attachments/assets/ac87e994-fc71-47b2-b930-0daa19601b8c" />  
 
@@ -267,17 +267,17 @@ Original problem ID: {EVENT.ID}
 Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
 ```
 
- ### 4. Change Zabbix User settings to use Media Type  
- Go to Alerts --> Actions ---> Trigger Actions
+ ### 4. Zabbixdagi foydalanuvchiga Media Type biriktirish 
+ Alerts --> Actions ---> Trigger Actions bo‘limiga o‘ting.
  <img width="532" height="247" alt="image" src="https://github.com/user-attachments/assets/bf8b9c44-baad-4da2-b68f-b04c75c470b8" />  
- Create New Action  
+ Yangi Action yarating. 
  <img width="2323" height="421" alt="image" src="https://github.com/user-attachments/assets/43116bd1-7916-4f72-a507-1c5efefd19df" />  
 
-   Go to Operations Tab and Add Following Configure to Operations, Recovery Operations and Update Operations Sections  
+  Operations tabiga o‘ting va quyidagi konfiguratsiyani Operations, Recovery Operations va Update Operations bo‘limlariga qo‘shing.
    <img width="1370" height="1004" alt="image" src="https://github.com/user-attachments/assets/a3c1259c-992d-41b9-a06c-ffd21f946852" />  
    <img width="772" height="601" alt="image" src="https://github.com/user-attachments/assets/76224bc2-d600-4594-8a5b-a0dc4a43e23f" />  
 
-   Next Step is Go to Users --> Users and Select Admin  
+   Keyingi qadam – Users → Users bo‘limiga o‘ting va Admin foydalanuvchini tanlang.
    <img width="2554" height="525" alt="image" src="https://github.com/user-attachments/assets/6db6af3a-6af1-43d4-bb3b-11ec1eeb84f4" />  
    Select Media Tab and Add New Media as Telegram  
    <img width="2328" height="385" alt="image" src="https://github.com/user-attachments/assets/5d5f61e4-6578-4b7e-890d-b1bb0e8c5f6d" />
